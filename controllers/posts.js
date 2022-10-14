@@ -2,6 +2,8 @@ const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 const Checkin = require("../models/Checkin");
+const Intake = require("../models/Intake");
+const { create } = require("connect-mongo");
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -41,6 +43,27 @@ module.exports = {
       const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();;
       res.render("post.ejs", { post: post, user: req.user, comments: comments });
     } catch (err) {
+      console.log(err);
+    }
+  },
+  createInitial: async (req,res) => {
+    try {
+      await Intake.create({
+        fullname: req.body.fullname,
+        dob: req.body.dob,
+        phone: req.body.phone,
+        prefcont: req.body.prefcont,
+        startdate: req.body.startdate,
+        cough: req.body.cough,
+        soreThroat: req.body.sore,
+        sob: req.body.sob,
+        fever: req.body.fever,
+        loss: req.body.loss,
+        user: req.body.name,
+      });
+      console.log("Initial Intake Completed");
+      res.redirect("/contacttracing");
+    }catch (err) {
       console.log(err);
     }
   },
