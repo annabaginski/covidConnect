@@ -1,0 +1,80 @@
+<%- include('partials/header') -%>
+
+    <main class="container">
+        <div class="row justify-content-center">
+            <section class="col-6 mt-5">
+                <!-- <% if (locals.messages.errors) { %>
+                    <% messages.errors.forEach( el => { %>
+                        <div class="alert alert-danger"><%= el.msg %></div>
+                    <% }) %>    
+                <% } %>
+                <% if (locals.messages.info) { %>
+                    <% messages.info.forEach( el => { %>
+                        <div class="alert alert-info"><%= el.msg %></div>
+                    <% }) %>    
+                <% } %> -->
+                <h2>Contact Tracing Investigation</h2>
+                <p> <b> Explain self-isolation, isolation time, daily check=ins via app. </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <form action="/initial" method="POST">
+                    <div>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" value="<%=user.userName%>"  required>
+                    </div>
+
+                    <div>
+                        <h5>Current Symptoms:</h5>
+                        <label for="cough">Cough</label>
+                        <select name="cough" id="cough">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                            <option value="improving">Improving</option>
+                        </select>
+                    </div>
+                    <!-- OR -->
+                    <div>
+                        <label for="sore">Sore Throat</label>
+                        <select name="sore" id="sore">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="sob">Shortness of Breath</label>
+                        <select name="sob" id="sob">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                            <option value="improving">Improving</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="fever">Fever</label>
+                        <select name="fever" id="fever">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                            <option value="improving">Improving</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="loss">Loss of Taste/Smell</label>
+                        <select name="loss" id="loss">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                            <option value="improving">Improving</option>
+                        </select>
+                    </div>
+
+<div>
+    <button type="reset">Reset</button>
+                    <button type="submit">Submit</button>
+                </div>
+
+                  </form>
+
+            </section>
+        </div>
+    </main>
+
+<%- include('partials/footer') -%>
