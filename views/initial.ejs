@@ -14,15 +14,36 @@
                     <% }) %>    
                 <% } %> -->
                 <h2>Initial Intake Form</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <form action="/checkin" method="POST">
+                <p> <b> Explain self-isolation, isolation time, daily check-ins via app. </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <form action="/initial" method="POST">
+                    <h5>Personal Information:</h5>
                     <div>
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" value="<%=user.userName%>"  required>
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" name="fullname" id="fullname" required>
                     </div>
-
                     <div>
-                        <h5>Symptoms:</h5>
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" name="dob" id="dob" required>
+                    </div>
+                    <div>
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" name="phone" id="phone" required>
+                    </div>
+                    <div>
+                        <label for="prefcontact">Preferred Method of Contact:</label>
+                        <select name="prefcontact" id="prefcontact">
+                            <option value="email">Email</option>
+                            <option value="call">Phone - Call</option>
+                            <option value="text">Phone - Text</option>
+                        </select>
+                    </div>
+                    <br>
+                        <h5>Current Symptoms:</h5>
+                    <div>
+                        <label for="startdate">Start of Symptoms</label>
+                        <input type="date" name="startdate" id="startdate">
+                    </div>
+                    <div>
                         <label for="cough">Cough</label>
                         <select name="cough" id="cough">
                             <option value="no">No</option>
@@ -65,13 +86,14 @@
                             <option value="improving">Improving</option>
                         </select>
                     </div>
-
+<br>
 <div>
     <button type="reset">Reset</button>
                     <button type="submit">Submit</button>
                 </div>
 
                   </form>
+
             </section>
         </div>
     </main>
