@@ -3,6 +3,7 @@ const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 const Checkin = require("../models/Checkin");
 const Intake = require("../models/Intake");
+const Contact = require("../models/Contact");
 const { create } = require("connect-mongo");
 
 module.exports = {
@@ -25,6 +26,13 @@ module.exports = {
     try{
       res.render("checkin.ejs", {user: req.user});
       console.log(req.user)
+    }catch (err) {
+      console.log(err);
+    }
+  },
+  getContacttracing: async (req,res) => {
+    try {
+      res.render("contacttracing.ejs", {user: req.user});
     }catch (err) {
       console.log(err);
     }
@@ -59,11 +67,33 @@ module.exports = {
         sob: req.body.sob,
         fever: req.body.fever,
         loss: req.body.loss,
-        user: req.body.name,
+        user: req.user.id,
       });
       console.log("Initial Intake Completed");
       res.redirect("/contacttracing");
     }catch (err) {
+      console.log(err);
+    }
+  },
+  createContact: async (req,res) => {
+    try {
+      await Contact.create({
+        acquisitionCase: req.body.acquisitionCase,
+        acquisition1: req.body.acquisition1,
+        acquisition2: req.body.acquisition2,
+        contact1: req.body.contact1,
+        contact1Tel: req.body.contact1Tel,
+        contact2: req.body.contact2,
+        contact2Tel: req.body.contact2Tel,
+        contact3: req.body.contact3,
+        contact3Tel: req.body.contact3Tel,
+        contact4: req.body.contact4,
+        contact4Tel: req.body.contact4,
+        user: req.user.id,
+      });
+      console.log("Contact Tracing Investigation started!")
+      res.redirect("/profile");
+    } catch (err) {
       console.log(err);
     }
   },
@@ -77,7 +107,7 @@ module.exports = {
         sob: req.body.sob,
         fever: req.body.fever,
         loss: req.body.loss,
-        user: req.body.name,
+        user: req.user.id,
       });
       console.log("Daily Check-in completed");
       res.redirect("/profile");

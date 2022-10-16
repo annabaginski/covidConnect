@@ -16,8 +16,10 @@ router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
 router.get("/initial", ensureAuth, postsController.getInitial);
 router.get("/checkin", ensureAuth, postsController.getCheckin);
+router.get("/contacttracing", ensureAuth, postsController.getContacttracing);
 
 router.post("/checkin", postsController.createCheckin);
 router.post("/initial", postsController.createInitial);
+router.post("/contacttracing", postsController.createContact);
 
 module.exports = router;

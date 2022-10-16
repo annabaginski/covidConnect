@@ -1,43 +1,47 @@
 const mongoose = require("mongoose");
 
-const IntakeSchema = new mongoose.Schema({
-    fullname: {
+const ContactSchema = new mongoose.Schema({
+    acquisitionCase: {
         type: String,
-        require: true,
-    },
-    dob: {
-        type: Date,
-        require: true,
-    },
-    phone: {
-        type: Number,
         require: false,
     },
-    prefcont: {
+    acquisition1: {
+        type: String,
+        require: false,
+    },
+    acquisition2: {
+        type: String,
+        require: false,
+    },
+    contact1: {
         type: String,
         require: true,
     },
-    startdate: {
-        type: Date,
-        require: true,
-    },
-    cough: {
+    contact1Tel: {
         type: String,
         require: true,
     },
-    soreThroat: {
+    contact2: {
         type: String,
         require: true,
     },
-    sob: {
+    contact2Tel: {
         type: String,
         require: true,
     },
-    fever: {
+    contact3: {
         type: String,
         require: true,
     },
-    loss: {
+    contact3Tel: {
+        type: String,
+        require: true,
+    },
+    contact4: {
+        type: String,
+        require: true,
+    },
+    contact4Tel: {
         type: String,
         require: true,
     },
@@ -51,4 +55,4 @@ const IntakeSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("Intake", IntakeSchema);
+module.exports = mongoose.model("Contact", ContactSchema);

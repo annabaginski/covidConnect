@@ -14,58 +14,53 @@
                     <% }) %>    
                 <% } %> -->
                 <h2>Contact Tracing Investigation</h2>
-                <p> <b> Explain self-isolation, isolation time, daily check=ins via app. </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <form action="/initial" method="POST">
+                <p> <b> For potential acquisitions please give location in the 14 days prior to your symptoms starting. </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <form action="/contacttracing" method="POST">
+                    <h5>Potential Acquisitons:</h5>
                     <div>
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" value="<%=user.userName%>"  required>
+                        <label for="acquisitionCase">Known Case: </label>
+                        <input type="text" name="acquisitionCase" id="acquisitionCase" placeholder="If you know case's name">
+                        </div>
+                    <div>
+                    <label for="acquisition1">Location:</label>
+                    <input type="text" name="acquisition1" id="acquisition1" >
                     </div>
+                    <div>
+                        <label for="acquisition2">Location:</label>
+                        <input type="text" name="acquisition2" id="acquisition2" >
+                        </div>
+                        <BR></BR>
 
+                        <!-- ADD OPTION TO ADD EXTRA ENTRIES -->
                     <div>
-                        <h5>Current Symptoms:</h5>
-                        <label for="cough">Cough</label>
-                        <select name="cough" id="cough">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                            <option value="improving">Improving</option>
-                        </select>
+                        <h5>High Risk Contact Reporting:</h5>
+                        <div>
+                        <label for="contact1">Name:</label>
+                        <input type="text" name="contact1" id="contact1">
+                        <label for="contact1Tel">Phone Number:</label>
+                        <input type="text" name="contact1Tel" id="contact1Tel">
+                        </div>
+                        <div>
+                            <label for="contact2">Name:</label>
+                            <input type="text" name="contact2" id="contact2">
+                            <label for="contact2Tel">Phone Number:</label>
+                            <input type="text" name="contact2Tel" id="contact2Tel">
+                            </div>
+                            <div>
+                                <label for="contact3">Name:</label>
+                                <input type="text" name="contact3" id="contact3">
+                                <label for="contact3Tel">Phone Number:</label>
+                                <input type="text" name="contact3Tel" id="contact3Tel">
+                                </div>
+                                <div>
+                                    <label for="contact4">Name:</label>
+                                    <input type="text" name="contact4" id="contact1">
+                                    <label for="contact4Tel">Phone Number:</label>
+                                    <input type="text" name="contact4Tel" id="contact4Tel">
+                                    </div>
                     </div>
-                    <!-- OR -->
-                    <div>
-                        <label for="sore">Sore Throat</label>
-                        <select name="sore" id="sore">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="sob">Shortness of Breath</label>
-                        <select name="sob" id="sob">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                            <option value="improving">Improving</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="fever">Fever</label>
-                        <select name="fever" id="fever">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                            <option value="improving">Improving</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="loss">Loss of Taste/Smell</label>
-                        <select name="loss" id="loss">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                            <option value="improving">Improving</option>
-                        </select>
-                    </div>
-
+                    <br>
+                    
 <div>
     <button type="reset">Reset</button>
                     <button type="submit">Submit</button>
