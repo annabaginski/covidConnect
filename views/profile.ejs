@@ -1,52 +1,73 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-          <div class="mt-5">
-            <h2>Add a post</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div>
+<div class="container h-screen">
+
+  <div class="relative overflow-hidden bg-white">
+    <div class="mx-auto min-h-screen max-w-7xl flex flex-col justify-evenly border">
+
+     <!-- COUNTDOWN BAR -->
+     <div class="flex gap-5 justify-content-center">
+      <div>
+        <span class="countdown font-mono text-4xl">
+          <span style="--value:8;"></span>
+        </span>
+        days
+      </div> 
+      <div>
+        <span class="countdown font-mono text-4xl">
+          <span style="--value:10;"></span>
+        </span>
+        hours
+      </div> 
+      <div>
+        <span class="countdown font-mono text-4xl">
+          <span style="--value:24;"></span>
+        </span>
+        min
+      </div> 
+      <div>
+        <span class="countdown font-mono text-4xl">
+          <span style="--value:36;"></span>
+        </span>
+        sec
       </div>
+    </div>
+
+     <div class="flex flex-row justify-evenly min-h-full">
+        
+        <!-- PROFILE -->
+        
+        <div class="card w-96 bg-base-100 shadow-xl h-96">
+          <div class="card-body h-full">
+            <h2 class="card-title text-center justify-center">Profile</h2>
+            <p><strong>Full Name</strong>: <%= user.userName %></p>
+            <p><strong>Email</strong>: <%= user.email %></p>
+            <p><strong>Symptom Start Date</strong>: <%= user.email %></p>
+            <p><strong>Isolation End Date</strong>: <%= user.email %></p>
+            <div class="card-actions justify-content-center">
+              <a href="/logout" class="flex w-auto items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-2 text-base font-medium text-white hover:bg-green-700 md:py-4 md:px-10 md:text-md">Logout</a>
+            </div>
+          </div>
+        </div>
+        
+          
+      
       <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
+      
         <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/initial">Start Initial Intake</a>
+          <a href="/initial" class="flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-2 text-base font-medium text-white hover:bg-green-700 md:py-4 md:px-10 md:text-md">Start Initial Intake</a>
         </div>
         <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/checkin">Add a Daily Check-In</a>
+          <a href="/checkin" class="flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-2 text-base font-medium text-white hover:bg-green-700 md:py-4 md:px-10 md:text-md">Add a Daily Check-In</a>
         </div>
         <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
+          <a href="/checkin" class="flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 px-8 py-2 text-base font-medium text-white hover:bg-green-700 md:py-4 md:px-10 md:text-md">Return to Feed</a>
         </div>  
       </div>  
     </div>
+    </div>
   </div>
 </div>
+</div>
+
+
 <%- include('partials/footer') -%>
