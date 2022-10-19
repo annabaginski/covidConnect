@@ -17,7 +17,7 @@ add image here
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://user-images.githubusercontent.com/93549623/196795632-ca4144ad-2c2b-478e-a86f-71c37c764aad.png)
 
 
 ## Tech Stack
