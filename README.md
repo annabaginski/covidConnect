@@ -12,9 +12,6 @@ with personal information, symptom assessents, contact-tracing, etc.), daily
 assessments, access resources applicable to their location, and request follow-up
 from nurses if necessary. 
 
-add image here
-
-
 ## Screenshots
 
 ![App Screenshot](https://user-images.githubusercontent.com/93549623/196795632-ca4144ad-2c2b-478e-a86f-71c37c764aad.png)
