@@ -5,25 +5,25 @@
       <div class="max-w-4xl mx-auto">
         <div class="flex items-center justify-between">
           <div>
-            <button type="button" class="flex items-center focus:outline-none rounded-lg text-gray-600 hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border border-transparent hover:border-yellow-300 focus:border-yellow-300 transition">
+            <!-- <button type="button" class="flex items-center focus:outline-none rounded-lg text-gray-600 hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border border-transparent hover:border-yellow-300 focus:border-yellow-300 transition">
               <span class="inline-flex items-center justify-center w-6 h-6 text-gray-600 text-xs rounded bg-white transition mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
               </span>
               <span class="text-sm">Archive</span>
-            </button>
+            </button> -->
           </div>
           <div class="text-lg font-bold"> <%= todaysDate %> </div>
           <div>
-            <button type="button" class="flex items-center focus:outline-none rounded-lg text-gray-600 hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border border-transparent hover:border-yellow-300 focus:border-yellow-300 transition">
+            <!-- <button type="button" class="flex items-center focus:outline-none rounded-lg text-gray-600 hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border border-transparent hover:border-yellow-300 focus:border-yellow-300 transition">
               <span class="text-sm">This week</span>
               <span class="inline-flex items-center justify-center w-6 h-6 text-gray-600 text-xs rounded bg-white transition ml-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                 </svg>
               </span>
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -41,14 +41,14 @@
                 <a href="javascript:void(0)" class="flex items-center bg-green-200 rounded-xl font-bold text-sm text-green-900 py-3 px-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
                     <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
-                  </svg>Plan
+                  </svg>Dashboard
                 </a>
               </li>
               <li>
                 <a href="javascript:void(0)" class="flex bg-white hover:bg-green-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
                     <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z"/>
-                  </svg>Task list
+                  </svg>Past Check-Ins
                 </a>
               </li>
               <li>
@@ -83,7 +83,10 @@
       <div class="px-6 py-8">
         <div class="max-w-4xl mx-auto">
           <div class="bg-white rounded-3xl p-8 mb-5">
-            <h2 class="text-2xl font-bold mb-4 text-center">Self Isolation ends in: <span id="timer"></span></h2>
+            <% if (intake != 'incomplete') { %>
+                <h2 class="text-2xl font-bold mb-4 text-center">Self Isolation ends in: <span id="timer"></span></h2>
+            <% } %>
+            
             <!-- <h1 class="text-3xl font-bold mb-10">Messaging ID framework development for the marketing branch</h1> -->
     
   
@@ -96,7 +99,15 @@
                 <div class="grid grid-cols-2 gap-4">
                   <div class="col-span-2">
                     <div class="p-4 bg-green-100 rounded-xl">
-                      <div class="font-bold text-xl text-gray-800 leading-none">Good day, <br><%= name.split(' ')[0] %></div>
+                      <div class="font-bold text-xl text-gray-800 leading-none">Good day, 
+                        <br>
+                        <% if (typeof name == 'string'){ %>
+                            <%= name %>
+                        <% } else { %>
+                            <%= name.split(' ')[0] %>
+                        <% } %>
+                    
+                        </div>
                       <div class="mt-5">
                         <a href="/checkin">
                         <button type="button" class="inline-flex items-center justify-center py-2 px-3 rounded-xl bg-white text-gray-800 hover:text-green-500 text-sm font-semibold transition">
@@ -107,7 +118,15 @@
                     </div>
                   </div>
                   <div class="p-4 bg-yellow-100 rounded-xl text-gray-800">
-                    <div class="font-bold text-2xl leading-none"><%= countdownStart.toString().slice(0,15) %></div>
+                    <div class="font-bold text-2xl leading-none">
+                        <% if (typeof countdownStart == 'String'){ %>
+                            <%= countdownStart %>
+                        <% } else { %>
+                            <%= countdownStart.toString().slice(0,15) %>
+                        <% } %>
+                        
+                    
+                    </div>
                     <div class="mt-2">Symptom Start Date</div>
                   </div>
                   <div class="p-4 bg-yellow-100 rounded-xl text-gray-800">
@@ -115,9 +134,9 @@
                     <div class="mt-2">Isolation End Date</div>
                   </div>
                   <div class="col-span-2">
-                    <div class="p-4 bg-purple-100 rounded-xl text-gray-800">
-                      <div class="font-bold text-xl leading-none">Your daily plan</div>
-                      <div class="mt-2">5 of 8 completed</div>
+                    <div class="p-4 bg-green-300 rounded-xl text-gray-800">
+                      <div class="font-bold text-xl leading-none">Guidance & Resources</div>
+                      <!-- <div class="mt-2">5 of 8 completed</div> -->
                     </div>
                   </div>
                 </div>
@@ -128,34 +147,36 @@
                 <div class="space-y-4">
                   <div class="p-4 bg-white border rounded-xl text-gray-800 space-y-2">
                     <div class="flex justify-between">
-                      <div class="text-gray-400 text-xs">Number 10</div>
-                      <div class="text-gray-400 text-xs">4h</div>
+                      <!-- <div class="text-gray-400 text-xs">Number 10</div>
+                      <div class="text-gray-400 text-xs">4h</div> -->
                     </div>
-                    <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Blog and social posts</a>
-                    <div class="text-sm text-gray-600">
+                    <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Complete your Initial Intake  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-gray-800 inline align-middle mr-1" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                      </svg> </a> 
+                    <!-- <div class="text-sm text-gray-600">
                       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-gray-800 inline align-middle mr-1" viewBox="0 0 16 16">
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
                       </svg>Deadline is today
-                    </div>
+                    </div> -->
                   </div>
                   <div class="p-4 bg-white border rounded-xl text-gray-800 space-y-2">
                     <div class="flex justify-between">
-                      <div class="text-gray-400 text-xs">Grace Aroma</div>
-                      <div class="text-gray-400 text-xs">7d</div>
+                      <!-- <div class="text-gray-400 text-xs">Grace Aroma</div>
+                      <div class="text-gray-400 text-xs">7d</div> -->
                     </div>
-                    <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">New campaign review</a>
-                    <div class="text-sm text-gray-600">
+                    <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Complete your daily check-in</a>
+                    <!-- <div class="text-sm text-gray-600">
                       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-gray-800 inline align-middle mr-1" viewBox="0 0 16 16">
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
                       </svg>New feedback
-                    </div>
+                    </div> -->
                   </div>
                   <div class="p-4 bg-white border rounded-xl text-gray-800 space-y-2">
                     <div class="flex justify-between">
-                      <div class="text-gray-400 text-xs">Petz App</div>
-                      <div class="text-gray-400 text-xs">2h</div>
+                      <!-- <div class="text-gray-400 text-xs">Petz App</div>
+                      <div class="text-gray-400 text-xs">2h</div> -->
                     </div>
-                    <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Cross-platform and browser QA</a>
+                    <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Update Contact-Tracing Form</a>
                   </div>
   
                 </div>

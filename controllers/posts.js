@@ -10,7 +10,21 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      const intake = await Intake.find({ user: req.user.id});
+      console.log('This is intake:', intake, intake.length);
+
+      if (intake.length < 1){
+        console.log('WOo', req.user.userName, typeof req.user.userName)
+
+        res.render("profileTwo.ejs", { posts: posts, user: req.user, name: req.user.userName, todaysDate: 'Please complete Initial Intake', countdownDate: 'Incomplete',  countdownStart: 'Incomplete', intake: 'incomplete'});
+      } else {
+        console.log('Yay')
+        const todaysDate = new Date().toString().slice(0,15);
+        const countdownStart = new Date(intake[0].startdate);
+        const countdownDate = new Date(countdownStart.setDate(countdownStart.getDate() + 10)).toString().slice(0,15);
+        console.log(intake[0].startdate, countdownStart, countdownDate)
+        res.render("profileTwo.ejs", { posts: posts, user: req.user, name: intake[0].fullname, intake: intake, countdownDate: countdownDate,  countdownStart: intake[0].startdate, todaysDate: todaysDate});
+      }
     } catch (err) {
       console.log(err);
     }
