@@ -17,6 +17,7 @@ router.post("/signup", authController.postSignup);
 router.get("/initial", ensureAuth, postsController.getInitial);
 router.get("/checkin", ensureAuth, postsController.getCheckin);
 router.get("/contacttracing", ensureAuth, postsController.getContacttracing);
+router.get("/resourcePage", postsController.getResourcePage);
 
 router.post("/checkin", postsController.createCheckin);
 router.post("/initial", postsController.createInitial);

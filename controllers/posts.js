@@ -51,6 +51,20 @@ module.exports = {
       console.log(err);
     }
   },
+  getResourcePage: async (req,res) => {
+    try {
+      const posts = await Post.find({ user: req.user.id });
+      const intake = await Intake.find({ user: req.user.id});
+
+      const todaysDate = new Date().toString().slice(0,15);
+        const countdownStart = new Date(intake[0].startdate);
+        const countdownDate = new Date(countdownStart.setDate(countdownStart.getDate() + 10)).toString().slice(0,15);
+
+      res.render("resourcePage.ejs", { posts: posts, user: req.user, name: intake[0].fullname, intake: intake, countdownDate: countdownDate,  countdownStart: intake[0].startdate, todaysDate: todaysDate});
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
