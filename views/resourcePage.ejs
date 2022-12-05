@@ -38,7 +38,7 @@
           <div class="p-4">
             <ul class="space-y-1">
               <li>
-                <a href="javascript:void(0)" class="flex items-center hover:bg-green-50 hover:text-green-800 rounded-xl font-bold text-sm text-green-900 py-3 px-4">
+                <a href="/profile" class="flex items-center hover:bg-green-50 hover:text-green-800 rounded-xl font-bold text-sm text-gray-900 py-3 px-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
                     <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
                   </svg>Dashboard
@@ -52,7 +52,7 @@
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="flex bg-green-200 hover:text-green-800 rounded-xl font-bold text-sm text-gray-900 py-3 px-4">
+                <a href="javascript:void(0)" class="flex bg-green-200 hover:text-green-800 rounded-xl font-bold text-sm text-green-900 py-3 px-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
                     <path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z"/>
                   </svg>Resources
@@ -79,12 +79,12 @@
       </div>
     </aside>
   
-    <main class="ml-60 pt-16 max-h-screen overflow-auto">
+    <main class="ml-60 pt-16 h-screen overflow-auto">
       <div class="px-6 py-8">
         <div class="max-w-4xl mx-auto">
           <div class="bg-white rounded-3xl p-8 mb-5">
             <% if (intake != 'incomplete') { %>
-                <h2 class="text-2xl font-bold mb-4 text-center">Self Isolation ends in: <span id="timer"></span></h2>
+                <h2 class="text-2xl font-bold mb-4 text-center"> Covid-19 Resources </h2>
             <% } %>
             
             <!-- <h1 class="text-3xl font-bold mb-10">Messaging ID framework development for the marketing branch</h1> -->
@@ -92,103 +92,70 @@
   
             <hr class="my-10">
   
-            <div class="grid grid-cols-2 gap-x-20">
+            <div class="grid grid-cols-2 gap-x-10">
               <div>
-                <h2 class="text-2xl font-bold mb-4">Stats</h2>
   
                 <div class="grid grid-cols-2 gap-4">
                   <div class="col-span-2">
-                    <div class="p-4 bg-green-100 rounded-xl">
-                      <div class="font-bold text-xl text-gray-800 leading-none">Good day, 
-                        <br>
-                        <% if (typeof name == 'string'){ %>
-                            <%= name %>
-                        <% } else { %>
-                            <%= name.split(' ')[0] %>
-                        <% } %>
-                    
+                    <div class="p-4 bg-purple-100 rounded-xl">
+                      <div class="font-bold text-xl text-gray-800 leading-none">Self-Isolation: Guide for Caregivers
                         </div>
-                      <div class="mt-5">
-                        <a href="/checkin">
-                        <button type="button" class="inline-flex items-center justify-center py-2 px-3 rounded-xl bg-white text-gray-800 hover:text-green-500 text-sm font-semibold transition">
-                          Start daily check-in
-                        </button>
-                    </a>
-                      </div>
+
                     </div>
                   </div>
-                  <div class="p-4 bg-yellow-100 rounded-xl text-gray-800">
-                    <div class="font-bold text-2xl leading-none">
-                        <% if (typeof countdownStart == 'String'){ %>
-                            <%= countdownStart %>
-                        <% } else { %>
-                            <%= countdownStart.toString().slice(0,15) %>
-                        <% } %>
-                        
-                    
-                    </div>
-                    <div class="mt-2">Symptom Start Date</div>
-                  </div>
-                  <div class="p-4 bg-yellow-100 rounded-xl text-gray-800">
-                    <div class="font-bold text-2xl leading-none" id="endDate"><%= countdownDate %></div>
-                    <div class="mt-2">Isolation End Date</div>
-                  </div>
+
                   <div class="col-span-2">
-                    <div class="p-4 bg-green-300 rounded-xl text-gray-800">
-                      <div class="font-bold text-xl leading-none">Guidance & Resources</div>
-                      <!-- <div class="mt-2">5 of 8 completed</div> -->
+                    <div class="p-4 bg-blue-100 rounded-xl">
+                      <div class="font-bold text-xl text-gray-800 leading-none"> How to Self-Isolate
+                        </div>
+
                     </div>
                   </div>
+
+                  <div class="col-span-2">
+                    <div class="p-4 bg-orange-100 rounded-xl">
+                      <div class="font-bold text-xl text-gray-800 leading-none">Covid-19 Vaccines
+                        </div>
+
+                    </div>
+                  </div>
+
                 </div>
               </div>
               <div>
-                <h2 class="text-2xl font-bold mb-4">Your tasks today</h2>
   
-                <div class="space-y-4">
+               
 
-                    <% if (intake == 'incomplete') { %>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-2">
+                          <div class="p-4 bg-yellow-100 rounded-xl">
+                            <div class="font-bold text-xl text-gray-800 leading-none"> Testing and Treatment
+                              </div>
+      
+                          </div>
+                        </div>
 
-                  <div class="p-4 bg-white border rounded-xl text-gray-800 space-y-2">
-                    <div class="flex justify-between">
-                      <!-- <div class="text-gray-400 text-xs">Number 10</div>
-                      <div class="text-gray-400 text-xs">4h</div> -->
-                    </div>
-                    <a href="/initial" class="font-bold hover:text-yellow-800 hover:underline">Complete your Initial Intake  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-gray-800 inline align-middle mr-1" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                      </svg> </a> 
-                    <!-- <div class="text-sm text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-gray-800 inline align-middle mr-1" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                      </svg>Deadline is today
-                    </div> -->
-                  </div>
+                            <div class="col-span-2">
+                              <div class="p-4 bg-red-100 rounded-xl">
+                                <div class="font-bold text-xl text-gray-800 leading-none">How to Self-Monitor
+                                  </div>
+          
+                              </div>
+                            </div>
 
-                  <% } %>
-
-                  <div class="p-4 bg-white border rounded-xl text-gray-800 space-y-2">
-                    <div class="flex justify-between">
-                      <!-- <div class="text-gray-400 text-xs">Grace Aroma</div>
-                      <div class="text-gray-400 text-xs">7d</div> -->
-                    </div>
-                    <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Complete your daily check-in</a>
-                    <!-- <div class="text-sm text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-gray-800 inline align-middle mr-1" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                      </svg>New feedback
-                    </div> -->
-                  </div>
-                  <div class="p-4 bg-white border rounded-xl text-gray-800 space-y-2">
-                    <div class="flex justify-between">
-                      <!-- <div class="text-gray-400 text-xs">Petz App</div>
-                      <div class="text-gray-400 text-xs">2h</div> -->
-                    </div>
-                    <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Update Contact-Tracing Form</a>
-                  </div>
+                           
+                                <div class="col-span-2">
+                                  <div class="p-4 bg-pink-100 rounded-xl">
+                                    <div class="font-bold text-xl text-gray-800 leading-none">School and Child Care Guidance
+                                      </div>
+              
+                                  </div>
+                                </div>
   
-                </div>
-              </div>
+                
+              
             </div>
-          </div>
+          
         </div>
       </div>
     </main>
