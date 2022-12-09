@@ -13,62 +13,66 @@
                         <div class="alert alert-info"><%= el.msg %></div>
                     <% }) %>    
                 <% } %>
+
+                <div class="max-w-lg mx-auto">
+
                 <form action="/checkin" method="POST">
-                    <div>
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" value="<%=user.userName%>"  required>
+                    <div class="mb-6">
+                    <label class="text-sm font-medium text-gray-900 block mb-2" for="name">Name:</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="name" id="name" value="<%=user.userName%>"  required>
                     </div>
 
-                    <div>
-                        <label for="cough">Cough</label>
-                        <select name="cough" id="cough">
+                    <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-900 block mb-2" for="cough">Cough</label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="cough" id="cough">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                             <option value="improving">Improving</option>
                         </select>
                     </div>
                     <!-- OR -->
-                    <div>
-                        <label for="sore">Sore Throat</label>
-                        <select name="sore" id="sore">
+                    <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-900 block mb-2" for="sore">Sore Throat</label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="sore" id="sore">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>
                     </div>
 
-                    <div>
-                        <label for="sob">Shortness of Breath</label>
-                        <select name="sob" id="sob">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                            <option value="improving">Improving</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="fever">Fever</label>
-                        <select name="fever" id="fever">
+                    <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-900 block mb-2" for="sob">Shortness of Breath</label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="sob" id="sob">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                             <option value="improving">Improving</option>
                         </select>
                     </div>
 
-                    <div>
-                        <label for="loss">Loss of Taste/Smell</label>
-                        <select name="loss" id="loss">
+                    <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-900 block mb-2" for="fever">Fever</label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="fever" id="fever">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                             <option value="improving">Improving</option>
                         </select>
                     </div>
 
-<div>
-    <button type="reset">Reset</button>
-                    <button type="submit">Submit</button>
+                    <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-900 block mb-2" for="loss">Loss of Taste/Smell</label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="loss" id="loss">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                            <option value="improving">Improving</option>
+                        </select>
+                    </div>
+<br>
+                <div class="flex items-center justify-evenly w-full">
+                    <button class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm" type="reset">Reset</button>
+                    <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-8 py-2 text-sm" type="submit">Submit</button>
                 </div>
 
                   </form>
+                </div>
             </section>
         </div>
     </main>
