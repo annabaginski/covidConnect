@@ -13,61 +13,68 @@
                         <div class="alert alert-info"><%= el.msg %></div>
                     <% }) %>    
                 <% } %> -->
-                <h2>Contact Tracing Investigation</h2>
+
+                <div class="max-w-3xl mx-auto">
+                <h2 class="text-center text-gray-800 text-xl font-bold tracking-normal leading-tight mb-4">Contact Tracing Investigation</h2>
                 <p> <b> For potential acquisitions please give location in the 14 days prior to your symptoms starting. </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <br>
+                
+                
+
                 <form action="/contacttracing" method="POST">
-                    <h5>Potential Acquisitons:</h5>
-                    <div>
-                        <label for="acquisitionCase">Known Case: </label>
-                        <input type="text" name="acquisitionCase" id="acquisitionCase" placeholder="If you know case's name">
+                    <h5 class="text-gray-800 text-lg font-bold tracking-normal leading-tight mb-4">Potential Acquisitons:</h5>
+                    <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-900 block mb-2" for="acquisitionCase">Known Case: </label>
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="acquisitionCase" id="acquisitionCase" placeholder="If you know case's name">
                         </div>
-                    <div>
-                    <label for="acquisition1">Location:</label>
-                    <input type="text" name="acquisition1" id="acquisition1" >
+                    <div class="mb-6">
+                    <label class="text-sm font-medium text-gray-900 block mb-2" for="acquisition1">Location:</label>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="acquisition1" id="acquisition1" >
                     </div>
-                    <div>
-                        <label for="acquisition2">Location:</label>
-                        <input type="text" name="acquisition2" id="acquisition2" >
+                    <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-900 block mb-2" for="acquisition2">Location:</label>
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="acquisition2" id="acquisition2" >
                         </div>
                         <BR></BR>
 
                         <!-- ADD OPTION TO ADD EXTRA ENTRIES -->
-                    <div>
-                        <h5>High Risk Contact Reporting:</h5>
-                        <div>
-                        <label for="contact1">Name:</label>
-                        <input type="text" name="contact1" id="contact1">
-                        <label for="contact1Tel">Phone Number:</label>
-                        <input type="text" name="contact1Tel" id="contact1Tel">
+                    <div class="mb-6">
+                        <h5 class="text-gray-800 text-lg font-bold tracking-normal leading-tight mb-4">High Risk Contact Reporting:</h5>
+
+                        <div class="mb-6">
+                        <label class="text-sm font-medium text-gray-900 block mb-2" for="contact1">Name:</label>
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="contact1" id="contact1">
+                        <label class="text-sm font-medium text-gray-900 block mb-2" for="contact1Tel">Phone Number:</label>
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="contact1Tel" id="contact1Tel">
                         </div>
-                        <div>
-                            <label for="contact2">Name:</label>
-                            <input type="text" name="contact2" id="contact2">
-                            <label for="contact2Tel">Phone Number:</label>
-                            <input type="text" name="contact2Tel" id="contact2Tel">
+                        <div class="mb-6">
+                            <label class="text-sm font-medium text-gray-900 block mb-2" for="contact2">Name:</label>
+                            <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="contact2" id="contact2">
+                            <label class="text-sm font-medium text-gray-900 block mb-2" for="contact2Tel">Phone Number:</label>
+                            <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="contact2Tel" id="contact2Tel">
                             </div>
-                            <div>
-                                <label for="contact3">Name:</label>
-                                <input type="text" name="contact3" id="contact3">
-                                <label for="contact3Tel">Phone Number:</label>
-                                <input type="text" name="contact3Tel" id="contact3Tel">
+                            <div class="mb-6">
+                                <label class="text-sm font-medium text-gray-900 block mb-2" for="contact3">Name:</label>
+                                <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="contact3" id="contact3">
+                                <label class="text-sm font-medium text-gray-900 block mb-2" for="contact3Tel">Phone Number:</label>
+                                <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="contact3Tel" id="contact3Tel">
                                 </div>
-                                <div>
-                                    <label for="contact4">Name:</label>
-                                    <input type="text" name="contact4" id="contact1">
-                                    <label for="contact4Tel">Phone Number:</label>
-                                    <input type="text" name="contact4Tel" id="contact4Tel">
+                                <div class="mb-6">
+                                    <label class="text-sm font-medium text-gray-900 block mb-2" for="contact4">Name:</label>
+                                    <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="contact4" id="contact1">
+                                    <label class="text-sm font-medium text-gray-900 block mb-2" for="contact4Tel">Phone Number:</label>
+                                    <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="contact4Tel" id="contact4Tel">
                                     </div>
                     </div>
                     <br>
                     
-<div>
-    <button type="reset">Reset</button>
-                    <button type="submit">Submit</button>
+<div class="flex items-center justify-evenly w-full">
+    <button class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm"  type="reset">Reset</button>
+                    <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-8 py-2 text-sm" type="submit">Submit</button>
                 </div>
 
                   </form>
-
+                </div>
             </section>
         </div>
     </main>
