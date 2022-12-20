@@ -55,12 +55,22 @@ module.exports = {
     try {
       const posts = await Post.find({ user: req.user.id });
       const intake = await Intake.find({ user: req.user.id});
+      console.log(intake, intake.length)
+      let startDate, name, countdownDate;
+      if (intake.length === 0){
+        startDate = null;
+        name = null;
+        countdownDate = null;
+      } else {
+        name = intake[0].fullname;
+        startDate = intake[0].startdate;
+        const countdownStart = new Date(startDate);
+        countdownDate = new Date(countdownStart.setDate(countdownStart.getDate() + 10)).toString().slice(0,15);
+      }
 
       const todaysDate = new Date().toString().slice(0,15);
-        const countdownStart = new Date(intake[0].startdate);
-        const countdownDate = new Date(countdownStart.setDate(countdownStart.getDate() + 10)).toString().slice(0,15);
-
-      res.render("resourcePage.ejs", { posts: posts, user: req.user, name: intake[0].fullname, intake: intake, countdownDate: countdownDate,  countdownStart: intake[0].startdate, todaysDate: todaysDate});
+       
+      res.render("resourcePage.ejs", { posts: posts, user: req.user, name: name, intake: intake, countdownDate: countdownDate,  countdownStart: startDate, todaysDate: todaysDate});
     } catch (err) {
       console.log(err);
     }
