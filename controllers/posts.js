@@ -65,6 +65,13 @@ module.exports = {
       console.log(err);
     }
   },
+  getPastCheckins: async (req,res) => {
+    try {
+      res.render("pastCheckins.ejs");
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
