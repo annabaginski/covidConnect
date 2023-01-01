@@ -24,4 +24,10 @@ router.post("/checkin", postsController.createCheckin);
 router.post("/initial", postsController.createInitial);
 router.post("/contacttracing", postsController.createContact);
 
+// Special routes for healthcare workers
+
+router.get("/signupHCW", authController.getSignupHCW);
+router.post("/signupHCW", authController.postSignupHCW);
+router.get("/profileNurse", ensureAuth, postsController.getProfileNurse);
+
 module.exports = router;

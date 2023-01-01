@@ -62,6 +62,15 @@ exports.getSignup = (req, res) => {
   });
 };
 
+exports.getSignupHCW = (req, res) => {
+  if (req.user) {
+    return res.redirect("/profileNurse");
+  }
+  res.render("signupHCW", {
+    title: "Create Account",
+  });
+};
+
 exports.postSignup = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
@@ -85,6 +94,7 @@ exports.postSignup = (req, res, next) => {
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
+    healthcareWorker: false,
   });
 
   User.findOne(
@@ -108,6 +118,61 @@ exports.postSignup = (req, res, next) => {
             return next(err);
           }
           res.redirect("/profile");
+        });
+      });
+    }
+  );
+};
+
+// Sign up post for Healthcare Workers
+
+exports.postSignupHCW = (req, res, next) => {
+  const validationErrors = [];
+  if (!validator.isEmail(req.body.email))
+    validationErrors.push({ msg: "Please enter a valid email address." });
+  if (!validator.isLength(req.body.password, { min: 8 }))
+    validationErrors.push({
+      msg: "Password must be at least 8 characters long",
+    });
+  if (req.body.password !== req.body.confirmPassword)
+    validationErrors.push({ msg: "Passwords do not match" });
+
+  if (validationErrors.length) {
+    req.flash("errors", validationErrors);
+    return res.redirect("../signupHCW");
+  }
+  req.body.email = validator.normalizeEmail(req.body.email, {
+    gmail_remove_dots: false,
+  });
+
+  const user = new User({
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password,
+    healthcareWorker: true,
+  });
+
+  User.findOne(
+    { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
+    (err, existingUser) => {
+      if (err) {
+        return next(err);
+      }
+      if (existingUser) {
+        req.flash("errors", {
+          msg: "Account with that email address or username already exists.",
+        });
+        return res.redirect("../signupHCW");
+      }
+      user.save((err) => {
+        if (err) {
+          return next(err);
+        }
+        req.logIn(user, (err) => {
+          if (err) {
+            return next(err);
+          }
+          res.redirect("/profileNurse");
         });
       });
     }

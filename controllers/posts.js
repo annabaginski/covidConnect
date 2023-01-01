@@ -29,6 +29,29 @@ module.exports = {
       console.log(err);
     }
   },
+  // Controller to get healthcare worker profile
+  getProfileNurse: async (req, res) => {
+    try {
+      const posts = await Post.find({ user: req.user.id });
+      const intake = await Intake.find({ user: req.user.id});
+      const todaysDate = new Date().toString().slice(0,15);
+      console.log('This is todays date:', todaysDate);
+
+      if (intake.length < 1){
+        console.log('WOo', req.user.userName, typeof req.user.userName)
+
+        res.render("profileNurse.ejs", { posts: posts, user: req.user, name: req.user.userName, todaysDate: todaysDate, countdownDate: 'Incomplete',  countdownStart: 'Incomplete', intake: 'incomplete'});
+      } else {
+        console.log('Yay')
+        const countdownStart = new Date(intake[0].startdate);
+        const countdownDate = new Date(countdownStart.setDate(countdownStart.getDate() + 10)).toString().slice(0,15);
+        console.log(intake[0].startdate, countdownStart, countdownDate)
+        res.render("profileNurse.ejs", { posts: posts, user: req.user, name: intake[0].fullname, intake: intake, countdownDate: countdownDate,  countdownStart: intake[0].startdate, todaysDate: todaysDate});
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getInitial: async (req, res) => {
     try {
       res.render("initial.ejs", {user: req.user});
