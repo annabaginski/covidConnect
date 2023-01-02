@@ -6,6 +6,8 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   password: String,
   healthcareWorker: Boolean,
+  intakeCompleted: Boolean,
+  isolationStatus: Boolean,
 });
 
 // Password hash middleware.
