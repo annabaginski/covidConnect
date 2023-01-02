@@ -21,6 +21,10 @@ const IntakeSchema = new mongoose.Schema({
         type: Date,
         require: true,
     },
+    enddate: {
+        type: Date,
+        require: true,
+    },
     cough: {
         type: String,
         require: true,
