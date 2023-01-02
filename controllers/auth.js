@@ -4,6 +4,9 @@ const User = require("../models/User");
 
 exports.getLogin = (req, res) => {
   if (req.user) {
+    if (req.user.healthcareWorker === true){
+      return res.redirect("/profileNurse");
+    }
     return res.redirect("/profile");
   }
   res.render("login", {
@@ -39,7 +42,11 @@ exports.postLogin = (req, res, next) => {
         return next(err);
       }
       req.flash("success", { msg: "Success! You are logged in." });
+      if (user.healthcareWorker === true){
+        res.redirect(req.session.returnTo || "/profileNurse");
+      }else {
       res.redirect(req.session.returnTo || "/profile");
+      }
     });
   })(req, res, next);
 };
@@ -95,6 +102,9 @@ exports.postSignup = (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
     healthcareWorker: false,
+    intakeCompleted: false,
+    isolationStatus: false,
+
   });
 
   User.findOne(
