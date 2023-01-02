@@ -1,0 +1,282 @@
+  <%- include('partials/header-nobar') -%>
+
+  <body class="relative bg-blue-100 overflow-hidden max-h-screen">
+
+  <aside class="fixed inset-y-0 left-0 bg-white shadow-md max-h-screen w-60">
+    <div class="flex flex-col justify-between h-full">
+      <div class="flex-grow">
+        <div class="px-4 py-6 text-center border-b">
+          <h1 class="text-xl font-bold leading-none"><span class="text-blue-700">CovidConnect</span> </h1>
+        </div>
+        <div class="p-4">
+          <ul class="space-y-1">
+            <li>
+              <a href="/profileNurse" class="flex hover:bg-blue-50 hover:text-blue-800 rounded-xl font-bold text-sm text-gray-900 py-3 px-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
+                  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+                </svg>Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="/patientList" class="flex items-center bg-blue-200 hover:text-blue-800 rounded-xl font-bold text-sm text-blue-900 py-3 px-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
+                  <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z"/>
+                </svg>Patient List
+              </a>
+            </li>
+            <li>
+              <a href="/resourcePage" class="flex hover:bg-blue-50 hover:text-blue-800 rounded-xl font-bold text-sm text-gray-900 py-3 px-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
+                  <path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z"/>
+                </svg>Resources
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="flex hover:bg-blue-50 hover:text-blue-800 rounded-xl font-bold text-sm text-gray-900 py-3 px-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
+                  <path d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>Tags
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-4">
+      <a href="/logout">
+        <button type="button" class="inline-flex items-center justify-center h-9 px-4 rounded-xl bg-gray-900 text-gray-300 hover:text-white text-sm font-semibold transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="" viewBox="0 0 16 16">
+            <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+          </svg>
+        </button> <span class="font-bold text-sm ml-2">Logout</span> </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- component -->
+  
+  <main class="ml-60 pt-16 max-h-screen overflow-auto">
+      <div class="container mx-auto px-4 sm:px-8">
+          <div class="py-8">
+              <div>
+                  <h2 class="text-2xl font-semibold leading-tight">Patients </h2>
+              </div>
+              <div class="my-2 flex sm:flex-row flex-row">
+                  <div class="flex flex-row mb-1 sm:mb-0">
+                      <div class="relative mr-2">
+                          <select
+                              class="appearance-none h-full rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                              <option>5</option>
+                              <option>10</option>
+                              <option>20</option>
+                          </select>
+                          <div
+                              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                              </svg>
+                          </div>
+                      </div>
+                      <div class="relative mr-2">
+                          <select
+                              class="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
+                              <option>All</option>
+                              <option>Active</option>
+                              <option>Inactive</option>
+                          </select>
+                          <div
+                              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                              </svg>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="block relative">
+                      <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
+                          <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
+                              <path
+                                  d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z">
+                              </path>
+                          </svg>
+                      </span>
+                      <input placeholder="Search"
+                          class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+                  </div>
+              </div>
+
+            <!-- For loop to loop through all patients present in database and populate information about them to list -->
+
+              <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                  <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                      <table class="min-w-full leading-normal">
+                          <thead>
+                              <tr>
+                                  <th
+                                      class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                      Name
+                                  </th>
+                                  <th
+                                      class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                      Assigned to 
+                                  </th>
+                                  <th
+                                      class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                      Created at
+                                  </th>
+                                  <th
+                                      class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                      Status
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <div class="flex items-center">
+                                          <div class="flex-shrink-0 w-10 h-10">
+                                              <img class="w-full h-full rounded-full"
+                                                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                                  alt="" />
+                                          </div>
+                                          <div class="ml-3">
+                                              <p class="text-gray-900 whitespace-no-wrap">
+                                                  Vera Carpenter
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <p class="text-gray-900 whitespace-no-wrap">Admin</p>
+                                  </td>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <p class="text-gray-900 whitespace-no-wrap">
+                                          Jan 21, 2020
+                                      </p>
+                                  </td>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <span
+                                          class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                          <span aria-hidden
+                                              class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                          <span class="relative">Activo</span>
+                                      </span>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <div class="flex items-center">
+                                          <div class="flex-shrink-0 w-10 h-10">
+                                              <img class="w-full h-full rounded-full"
+                                                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                                  alt="" />
+                                          </div>
+                                          <div class="ml-3">
+                                              <p class="text-gray-900 whitespace-no-wrap">
+                                                  Blake Bowman
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <p class="text-gray-900 whitespace-no-wrap">Editor</p>
+                                  </td>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <p class="text-gray-900 whitespace-no-wrap">
+                                          Jan 01, 2020
+                                      </p>
+                                  </td>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <span
+                                          class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                          <span aria-hidden
+                                              class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                          <span class="relative">Activo</span>
+                                      </span>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <div class="flex items-center">
+                                          <div class="flex-shrink-0 w-10 h-10">
+                                              <img class="w-full h-full rounded-full"
+                                                  src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                                  alt="" />
+                                          </div>
+                                          <div class="ml-3">
+                                              <p class="text-gray-900 whitespace-no-wrap">
+                                                  Dana Moore
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <p class="text-gray-900 whitespace-no-wrap">Editor</p>
+                                  </td>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <p class="text-gray-900 whitespace-no-wrap">
+                                          Jan 10, 2020
+                                      </p>
+                                  </td>
+                                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                      <span
+                                          class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
+                                          <span aria-hidden
+                                              class="absolute inset-0 bg-orange-200 opacity-50 rounded-full"></span>
+                                          <span class="relative">Suspended</span>
+                                      </span>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="px-5 py-5 bg-white text-sm">
+                                      <div class="flex items-center">
+                                          <div class="flex-shrink-0 w-10 h-10">
+                                              <img class="w-full h-full rounded-full"
+                                                  src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&h=160&w=160&q=80"
+                                                  alt="" />
+                                          </div>
+                                          <div class="ml-3">
+                                              <p class="text-gray-900 whitespace-no-wrap">
+                                                  Alonzo Cox
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td class="px-5 py-5 bg-white text-sm">
+                                      <p class="text-gray-900 whitespace-no-wrap">Admin</p>
+                                  </td>
+                                  <td class="px-5 py-5 bg-white text-sm">
+                                      <p class="text-gray-900 whitespace-no-wrap">Jan 18, 2020</p>
+                                  </td>
+                                  <td class="px-5 py-5 bg-white text-sm">
+                                      <span
+                                          class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
+                                          <span aria-hidden
+                                              class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+                                          <span class="relative">Inactive</span>
+                                      </span>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <div
+                          class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                          <span class="text-xs xs:text-sm text-gray-900">
+                              Showing 1 to 4 of 50 Entries
+                          </span>
+                          <div class="inline-flex mt-2 xs:mt-0">
+                              <button
+                                  class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
+                                  Prev
+                              </button>
+                              <button
+                                  class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">
+                                  Next
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </main>
+  </body>
