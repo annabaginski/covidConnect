@@ -9,6 +9,7 @@ const User = require("../models/User");
 
 module.exports = {
   getProfile: async (req, res) => {
+    console.log("Current User:", req.user);
     try {
       const posts = await Post.find({ user: req.user.id });
       const intake = await Intake.find({ user: req.user.id});
@@ -109,7 +110,8 @@ module.exports = {
   getPatientList: async (req, res) => {
     try {
       const patients = await User.find({healthcareWorker: false});
-      res.render("patientList.ejs");
+      console.log(patients)
+      res.render("patientList.ejs", { patients: patients});
     } catch (err) {
       console.log(err);
     }
@@ -133,12 +135,16 @@ module.exports = {
   },
   createInitial: async (req,res) => {
     try {
+      const start = new Date(req.body.startdate);
+      const end = new Date(start.setDate(start.getDate() + 10));
+
       await Intake.create({
         fullname: req.body.fullname,
         dob: req.body.dob,
         phone: req.body.phone,
         prefcont: req.body.prefcont,
         startdate: req.body.startdate,
+        enddate: end,
         cough: req.body.cough,
         soreThroat: req.body.sore,
         sob: req.body.sob,
@@ -146,7 +152,14 @@ module.exports = {
         loss: req.body.loss,
         user: req.user.id,
       });
-      console.log("Initial Intake Completed");
+
+      const isolationStatus = new Date() < end;
+
+      await User.updateOne({email: req.user.email},
+        {$set: {intakeCompleted: true, isolationStatus: isolationStatus}}
+        );
+
+      console.log("Initial Intake Completed", req.user.id, req.user);
       res.redirect("/contacttracing");
     }catch (err) {
       console.log(err);
