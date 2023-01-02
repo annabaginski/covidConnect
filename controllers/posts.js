@@ -5,6 +5,7 @@ const Checkin = require("../models/Checkin");
 const Intake = require("../models/Intake");
 const Contact = require("../models/Contact");
 const { create } = require("connect-mongo");
+const User = require("../models/User");
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -101,6 +102,14 @@ module.exports = {
   getPastCheckins: async (req,res) => {
     try {
       res.render("pastCheckins.ejs");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  getPatientList: async (req, res) => {
+    try {
+      const patients = await User.find({healthcareWorker: false});
+      res.render("patientList.ejs");
     } catch (err) {
       console.log(err);
     }

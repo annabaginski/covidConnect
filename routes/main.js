@@ -29,5 +29,6 @@ router.post("/contacttracing", postsController.createContact);
 router.get("/signupHCW", authController.getSignupHCW);
 router.post("/signupHCW", authController.postSignupHCW);
 router.get("/profileNurse", ensureAuth, postsController.getProfileNurse);
+router.get("/patientList", postsController.getPatientList);
 
 module.exports = router;
