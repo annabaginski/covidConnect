@@ -2,12 +2,13 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  fullName: { type: String, unique: true },
+  userName: { type: String, unique: true },
   email: { type: String, unique: true },
+  fullName: { type: String, default: 'unknown' },
   password: String,
   healthcareWorker: Boolean,
   intakeCompleted: { Boolean, default: false },
-  isolationStatus: { Boolean, default: false }, 
+  isolationStatus: { Boolean, default: false}, 
   assignedNurse: {type: String, default: 'Unassigned'},
   createdAt: {type: Date, default: Date.now}
 });
