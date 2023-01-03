@@ -14,18 +14,25 @@ module.exports = {
       const posts = await Post.find({ user: req.user.id });
       const intake = await Intake.find({ user: req.user.id});
       console.log('This is intake:', intake, intake.length);
+      let name;
+
+      if (req.user.fullName === 'unknown'){
+        name = req.user.userName;
+      } else {
+        name = req.user.fullName;
+      }
 
       if (intake.length < 1){
         console.log('WOo', req.user.userName, typeof req.user.userName)
 
-        res.render("profileTwo.ejs", { posts: posts, user: req.user, name: req.user.userName, todaysDate: 'Please complete Initial Intake', countdownDate: 'Incomplete',  countdownStart: 'Incomplete', intake: 'incomplete'});
+        res.render("profileTwo.ejs", { posts: posts, user: req.user, name: name, todaysDate: 'Please complete Initial Intake', countdownDate: 'Incomplete',  countdownStart: 'Incomplete', intake: 'incomplete'});
       } else {
         console.log('Yay')
         const todaysDate = new Date().toString().slice(0,15);
         const countdownStart = new Date(intake[0].startdate);
         const countdownDate = new Date(countdownStart.setDate(countdownStart.getDate() + 10)).toString().slice(0,15);
         console.log(intake[0].startdate, countdownStart, countdownDate)
-        res.render("profileTwo.ejs", { posts: posts, user: req.user, name: intake[0].fullname, intake: intake, countdownDate: countdownDate,  countdownStart: intake[0].startdate, todaysDate: todaysDate});
+        res.render("profileTwo.ejs", { posts: posts, user: req.user, name: name, intake: intake, countdownDate: countdownDate,  countdownStart: intake[0].startdate, todaysDate: todaysDate});
       }
     } catch (err) {
       console.log(err);
@@ -41,8 +48,15 @@ module.exports = {
 
       if (intake.length < 1){
         console.log('WOo', req.user.userName, typeof req.user.userName)
+        let name;
 
-        res.render("profileNurse.ejs", { posts: posts, user: req.user, name: req.user.userName, todaysDate: todaysDate, countdownDate: 'Incomplete',  countdownStart: 'Incomplete', intake: 'incomplete'});
+        if (req.user.fullName === 'unknown'){
+          name = req.user.userName;
+        } else {
+          name = req.user.fullName;
+        }
+
+        res.render("profileNurse.ejs", { posts: posts, user: req.user, name: name, todaysDate: todaysDate, countdownDate: 'Incomplete',  countdownStart: 'Incomplete', intake: 'incomplete'});
       } else {
         console.log('Yay')
         const countdownStart = new Date(intake[0].startdate);
