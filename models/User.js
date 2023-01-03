@@ -2,12 +2,14 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  userName: { type: String, unique: true },
+  fullName: { type: String, unique: true },
   email: { type: String, unique: true },
   password: String,
   healthcareWorker: Boolean,
-  intakeCompleted: Boolean,
-  isolationStatus: Boolean,
+  intakeCompleted: { Boolean, default: false },
+  isolationStatus: { Boolean, default: false }, 
+  assignedNurse: {type: String, default: 'Unassigned'},
+  createdAt: {type: Date, default: Date.now}
 });
 
 // Password hash middleware.
