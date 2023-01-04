@@ -20,7 +20,7 @@
 
                 <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md self-center w-auto">
                 <form action="/initial" method="POST">
-                    <h5 class="text-md font-bold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">Personal Information</h5>
+                    <h5 class="text-base font-bold leading-7 text-gray-900 sm:text-xl sm:truncate sm:tracking-tight">Personal Information</h5>
                     <br>
                     <div class="form-group mb-6">
                     <label for="fullname" class="form-label inline-block mb-2 text-gray-700">Full Name:</label>
@@ -73,6 +73,7 @@
                         m-0
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" required>
                     </div>
+                    <br>
                     <div>
                         <label for="prefcontact">Preferred Method of Contact:</label>
                         <select name="prefcontact" id="prefcontact">
@@ -82,7 +83,7 @@
                         </select>
                     </div>
                     <br>
-                        <h5>Current Symptoms:</h5>
+                        <h5 class="text-sm font-bold leading-7 text-gray-900 sm:text-lg sm:truncate sm:tracking-tight">Current Symptoms:</h5>
                     <div>
                         <label for="startdate">Start of Symptoms</label>
                         <input type="date" name="startdate" id="startdate">
