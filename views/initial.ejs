@@ -62,8 +62,8 @@
                     </div>
                     <br>
                     <div class="mb-3">
-                        <label for="prefcontact" class="mb-3 inline text-base font-medium">Preferred Method of Contact:</label>
-                        <select name="prefcontact" id="prefcontact">
+                        <label for="prefcontact" class="mb-3 block text-base font-medium">Preferred Method of Contact:</label>
+                        <select name="prefcontact" id="prefcontact" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                             <option value="email">Email</option>
                             <option value="call">Phone - Call</option>
                             <option value="text">Phone - Text</option>
@@ -72,12 +72,12 @@
                     <br>
                         <h5 class="text-sm font-bold leading-7 text-gray-900 sm:text-lg sm:truncate sm:tracking-tight">Current Symptoms:</h5>
                     <div class="mb-3">
-                        <label for="startdate" class="">Start of Symptoms</label>
-                        <input type="date" name="startdate" id="startdate">
+                        <label for="startdate" class="mb-3 block text-base font-medium">Start of Symptoms</label>
+                        <input type="date" name="startdate" id="startdate" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                     </div>
                     <div class="mb-3">
-                        <label for="cough" class="">Cough</label>
-                        <select name="cough" id="cough">
+                        <label for="cough" class="mb-3 block text-base font-medium">Cough</label>
+                        <select name="cough" id="cough" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                             <option value="improving">Improving</option>
@@ -85,16 +85,8 @@
                     </div>
                     <!-- OR -->
                     <div class="mb-3">
-                        <label for="sore">Sore Throat</label>
-                        <select name="sore" id="sore">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="sob">Shortness of Breath</label>
-                        <select name="sob" id="sob">
+                        <label for="sore" class="mb-3 block text-base font-medium">Sore Throat</label>
+                        <select name="sore" id="sore" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                             <option value="improving">Improving</option>
@@ -102,8 +94,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="fever">Fever</label>
-                        <select name="fever" id="fever">
+                        <label for="sob" class="mb-3 block text-base font-medium">Shortness of Breath</label>
+                        <select name="sob" id="sob" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                             <option value="improving">Improving</option>
@@ -111,8 +103,17 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="loss">Loss of Taste/Smell</label>
-                        <select name="loss" id="loss">
+                        <label for="fever" class="mb-3 block text-base font-medium">Fever</label>
+                        <select name="fever" id="fever" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                            <option value="improving">Improving</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="loss" class="mb-3 block text-base font-medium">Loss of Taste/Smell</label>
+                        <select name="loss" id="loss" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                             <option value="improving">Improving</option>
@@ -120,8 +121,8 @@
                     </div>
 <br>
 <div>
-    <button type="reset">Reset</button>
-                    <button type="submit">Submit</button>
+    <button type="reset" class="rounded-md border border-transparent bg-green-100 px-7 py-2 text-base font-medium text-green-700 hover:bg-green-200 md:py-4 md:px-10 md:text-lg">Reset</button>
+                    <button type="submit" class="rounded-md border border-transparent bg-green-600 px-7 py-2 text-base font-medium text-white hover:bg-green-700 md:py-4 md:px-10 md:text-lg">Submit</button>
                 </div>
 
                   </form>
