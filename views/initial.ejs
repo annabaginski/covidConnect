@@ -16,14 +16,14 @@
                 <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight text-center p-6">Initial Intake Form</h2>
                 <p> <b> Explain self-isolation, isolation time, daily check-ins via app. </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 
+                <br>
 
-
-                <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md self-center w-auto">
+                <div class="block p-6 rounded-lg shadow-lg bg-white self-center w-full">
                 <form action="/initial" method="POST">
                     <h5 class="text-base font-bold leading-7 text-gray-900 sm:text-xl sm:truncate sm:tracking-tight">Personal Information</h5>
                     <br>
-                    <div class="form-group mb-6">
-                    <label for="fullname" class="form-label inline-block mb-2 text-gray-700">Full Name:</label>
+                    <div class="mb-3">
+                    <label for="fullname" class="mb-3 block text-base font-medium">Full Name:</label>
                     <input type="text" name="fullname" id="fullname" class="form-control block
                     w-full
                     px-3
@@ -39,25 +39,12 @@
                     m-0
                     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" required>
                     </div>
-                    <div>
-                        <label for="dob" class="form-label inline-block mb-2 text-gray-700">Date of Birth:</label>
-                        <input type="date" name="dob" id="dob" class="form-control
-                        w-full
-                        px-3
-                        py-1.5
-                        text-base
-                        font-normal
-                        text-gray-700
-                        bg-white bg-clip-padding
-                        border border-solid border-gray-300
-                        rounded
-                        transition
-                        ease-in-out
-                        m-0
-                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" required>
+                    <div class="mb-3">
+                        <label for="dob" class="mb-3 block text-base font-medium">Date of Birth:</label>
+                        <input type="date" name="dob" id="dob" class="w-full rounded-md border border-solid border-gray-300 bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" required>
                     </div>
-                    <div>
-                        <label for="phone" class="form-label inline-block mb-2 text-gray-700">Phone Number:</label>
+                    <div class="mb-3">
+                        <label for="phone" class="mb-3 block text-base font-medium">Phone Number:</label>
                         <input type="tel" name="phone" id="phone" class="form-control block
                         w-full
                         px-3
@@ -74,8 +61,8 @@
                         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" required>
                     </div>
                     <br>
-                    <div>
-                        <label for="prefcontact">Preferred Method of Contact:</label>
+                    <div class="mb-3">
+                        <label for="prefcontact" class="mb-3 inline text-base font-medium">Preferred Method of Contact:</label>
                         <select name="prefcontact" id="prefcontact">
                             <option value="email">Email</option>
                             <option value="call">Phone - Call</option>
@@ -84,12 +71,12 @@
                     </div>
                     <br>
                         <h5 class="text-sm font-bold leading-7 text-gray-900 sm:text-lg sm:truncate sm:tracking-tight">Current Symptoms:</h5>
-                    <div>
-                        <label for="startdate">Start of Symptoms</label>
+                    <div class="mb-3">
+                        <label for="startdate" class="">Start of Symptoms</label>
                         <input type="date" name="startdate" id="startdate">
                     </div>
-                    <div>
-                        <label for="cough">Cough</label>
+                    <div class="mb-3">
+                        <label for="cough" class="">Cough</label>
                         <select name="cough" id="cough">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
@@ -97,7 +84,7 @@
                         </select>
                     </div>
                     <!-- OR -->
-                    <div>
+                    <div class="mb-3">
                         <label for="sore">Sore Throat</label>
                         <select name="sore" id="sore">
                             <option value="no">No</option>
@@ -105,7 +92,7 @@
                         </select>
                     </div>
 
-                    <div>
+                    <div class="mb-3">
                         <label for="sob">Shortness of Breath</label>
                         <select name="sob" id="sob">
                             <option value="no">No</option>
@@ -114,7 +101,7 @@
                         </select>
                     </div>
 
-                    <div>
+                    <div class="mb-3">
                         <label for="fever">Fever</label>
                         <select name="fever" id="fever">
                             <option value="no">No</option>
@@ -123,7 +110,7 @@
                         </select>
                     </div>
 
-                    <div>
+                    <div class="mb-3">
                         <label for="loss">Loss of Taste/Smell</label>
                         <select name="loss" id="loss">
                             <option value="no">No</option>
