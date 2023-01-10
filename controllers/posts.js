@@ -116,7 +116,9 @@ module.exports = {
   },
   getPastCheckins: async (req,res) => {
     try {
-      res.render("pastCheckins.ejs");
+      const checkinsList = await Checkin.find({user: req.user.id});
+      console.log(req.user.id, checkinsList)
+      res.render("pastCheckins.ejs", { checkinsList: checkinsList});
     } catch (err) {
       console.log(err);
     }
