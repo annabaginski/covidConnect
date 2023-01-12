@@ -155,7 +155,7 @@ module.exports = {
       const end = new Date(start.setDate(start.getDate() + 10));
 
       await Intake.create({
-        fullname: req.body.fullname,
+        fullName: req.body.fullname,
         dob: req.body.dob,
         phone: req.body.phone,
         prefcont: req.body.prefcont,
