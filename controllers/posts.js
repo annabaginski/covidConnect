@@ -208,6 +208,7 @@ module.exports = {
     try {
       console.log(req.body)
       await Checkin.create({
+        fullName: req.body.fullname,
         cough: req.body.cough,
         soreThroat: req.body.sore,
         sob: req.body.sob,
