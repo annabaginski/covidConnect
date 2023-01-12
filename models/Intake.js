@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const IntakeSchema = new mongoose.Schema({
-    fullname: {
+    fullName: {
         type: String,
         require: true,
     },
