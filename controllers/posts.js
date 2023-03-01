@@ -42,12 +42,10 @@ module.exports = {
   getProfileNurse: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
-      const intake = await Intake.find({ user: req.user.id});
+      const assignedPatients = await User.find({ assignedNurse: req.user.id});
       const todaysDate = new Date().toString().slice(0,15);
-      console.log('This is todays date:', todaysDate);
+      console.log(assignedPatients);
 
-      if (intake.length < 1){
-        console.log('WOo', req.user.userName, typeof req.user.userName)
         let name;
 
         if (req.user.fullName === 'unknown'){
@@ -56,14 +54,8 @@ module.exports = {
           name = req.user.fullName;
         }
 
-        res.render("profileNurse.ejs", { posts: posts, user: req.user, name: name, todaysDate: todaysDate, countdownDate: 'Incomplete',  countdownStart: 'Incomplete', intake: 'incomplete'});
-      } else {
-        console.log('Yay')
-        const countdownStart = new Date(intake[0].startdate);
-        const countdownDate = new Date(countdownStart.setDate(countdownStart.getDate() + 10)).toString().slice(0,15);
-        console.log(intake[0].startdate, countdownStart, countdownDate)
-        res.render("profileNurse.ejs", { posts: posts, user: req.user, name: intake[0].fullname, intake: intake, countdownDate: countdownDate,  countdownStart: intake[0].startdate, todaysDate: todaysDate});
-      }
+      res.render("profileNurse.ejs", { posts: posts, user: req.user, name: name, todaysDate: todaysDate, patientList: assignedPatients});
+      
     } catch (err) {
       console.log(err);
     }
@@ -126,8 +118,10 @@ module.exports = {
   getPatientList: async (req, res) => {
     try {
       const patients = await User.find({healthcareWorker: false});
-      console.log(patients)
-      res.render("patientList.ejs", { patients: patients});
+      
+      console.log('This is current user: ', req.user.userName)
+    
+      res.render("patientList.ejs", { patients: patients, nurseName: req.user.userName});
     } catch (err) {
       console.log(err);
     }
@@ -269,4 +263,20 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+  selfAssign: async (req,res) => {
+    try {
+      console.log('Self assigned!');
+      console.log(req.params)
+      await User.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $set: { assignedNurse: req.params.nurse},
+        }
+      );
+      console.log("Nurse Changed");
+      res.redirect(`/patientList`);
+    } catch (err) {
+      console.log(err); 
+    }
+  }
 };

@@ -150,7 +150,16 @@
                                   </td>
                                   <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                       <p class="text-gray-900 whitespace-no-wrap">
-                                        <%= patients[i].assignedTo %>
+                                        <% if (patients[i].assignedNurse === 'Unassigned') { %>
+                                            <form class="col-1" action="/post/selfAssign/<%= patients[i].id %>&<%= nurseName %>?_method=PUT" method="POST">
+                                            <button class="btn btn-primary fa fa-heart" type="submit"></button>
+                                            </form>
+                                            
+                                        <% } else { %> 
+
+                                        <%= patients[i].assignedNurse %>
+
+                                        <% } %>
                                     </p>
                                   </td>
                                   <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
