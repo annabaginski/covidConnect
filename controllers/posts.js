@@ -42,9 +42,9 @@ module.exports = {
   getProfileNurse: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
-      const assignedPatients = await User.find({ assignedNurse: req.user.id});
+      const assignedPatients = await User.find({ assignedNurseId: req.user.id});
       const todaysDate = new Date().toString().slice(0,15);
-      console.log(assignedPatients);
+      console.log('Assigned patients,', assignedPatients);
 
         let name;
 
@@ -119,9 +119,10 @@ module.exports = {
     try {
       const patients = await User.find({healthcareWorker: false});
       
-      console.log('This is current user: ', req.user.userName)
+      console.log('This is patients: ', patients)
+      console.log('This is patients status: ', (patients[0].isolationStatus === 'true'))
     
-      res.render("patientList.ejs", { patients: patients, nurseName: req.user.userName});
+      res.render("patientList.ejs", { patients: patients, nurseName: req.user.userName, nurseId: req.user.id});
     } catch (err) {
       console.log(err);
     }
@@ -270,7 +271,9 @@ module.exports = {
       await User.findOneAndUpdate(
         { _id: req.params.id },
         {
-          $set: { assignedNurse: req.params.nurse},
+          $set: { 
+            assignedNurse: req.params.nurse,
+            assignedNurseId: req.params.nurseId},
         }
       );
       console.log("Nurse Changed");

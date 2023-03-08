@@ -106,13 +106,13 @@
                         <% } %>
                     
                         </div>
-                      <div class="mt-5">
+                      <!-- <div class="mt-5">
                         <a href="/checkin">
                         <button type="button" class="inline-flex items-center justify-center py-2 px-3 rounded-xl bg-white text-gray-800 hover:text-blue-500 text-sm font-semibold transition">
                           Start daily check-in
                         </button>
                     </a>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
 
@@ -135,7 +135,7 @@
 
                     <% if (patientList.length > 0) { %>
                       <% for (let i = 0; i < patientList.length; i++){ %>
-                        <li> Patient name here </li>
+                        <li> <%= patientList[i].userName %> </li>
                       <% } %>
                       <% } else { %>
                         <li>You have no patients today </li>

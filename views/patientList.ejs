@@ -135,14 +135,14 @@
                             
                               <tr>
                                   <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                      <div class="flex items-center">
+                                      <div class="flex justify-items-start">
                                           <!-- <div class="flex-shrink-0 w-10 h-10">
                                               <img class="w-full h-full rounded-full"
                                                   src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
                                                   alt="" />
                                           </div> -->
-                                          <div class="ml-3">
-                                              <p class="text-gray-900 whitespace-no-wrap">
+                                          <div class="">
+                                              <p class="text-gray-900 whitespace-no-wrap text-left">
                                                   <%= patients[i].userName %>
                                               </p>
                                           </div>
@@ -151,8 +151,10 @@
                                   <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                       <p class="text-gray-900 whitespace-no-wrap">
                                         <% if (patients[i].assignedNurse === 'Unassigned') { %>
-                                            <form class="col-1" action="/post/selfAssign/<%= patients[i].id %>&<%= nurseName %>?_method=PUT" method="POST">
-                                            <button class="btn btn-primary fa fa-heart" type="submit"></button>
+                                            <form class="col-1" action="/post/selfAssign/<%= patients[i].id %>&<%= nurseName %>&<%= nurseId %>?_method=PUT" method="POST">
+                                            <button class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-1 px-3 rounded">
+                                                Assign to me 
+                                            </button>
                                             </form>
                                             
                                         <% } else { %> 
@@ -169,7 +171,7 @@
                                   </td>
                                   <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 
-                                    <% if (patients[i].intakeCompleted === false){ %> 
+                                    <% if (patients[i].intakeCompleted == "false"){ %> 
 
                                       <span
                                           class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
@@ -178,7 +180,7 @@
                                           <span class="relative">Intake Incomplete</span>
                                       </span>
 
-                                      <% } else if (patients[i].isolationStatus === true) { %>
+                                      <% } else if (patients[i].isolationStatus == "true") { %>
 
                                         <span
                                         class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">

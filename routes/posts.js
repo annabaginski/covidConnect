@@ -13,6 +13,6 @@ router.put("/likePost/:id", postsController.likePost);
 
 router.delete("/deletePost/:id", postsController.deletePost);
 
-router.put("/selfAssign/:id&:nurse", postsController.selfAssign);
+router.put("/selfAssign/:id&:nurse&:nurseId", postsController.selfAssign);
 
 module.exports = router;

@@ -10,6 +10,7 @@ const UserSchema = new mongoose.Schema({
   intakeCompleted: { Boolean, default: false },
   isolationStatus: { Boolean, default: false}, 
   assignedNurse: {type: String, default: 'Unassigned'},
+  assignedNurseId: {type: String, default: 'Unassigned'},
   createdAt: {type: Date, default: Date.now}
 });
 
