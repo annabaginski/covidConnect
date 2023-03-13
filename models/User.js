@@ -7,8 +7,8 @@ const UserSchema = new mongoose.Schema({
   fullName: { type: String, default: 'unknown' },
   password: String,
   healthcareWorker: Boolean,
-  intakeCompleted: { Boolean, default: false },
-  isolationStatus: { Boolean, default: false}, 
+  intakeCompleted: Boolean,
+  isolationStatus: Boolean, 
   assignedNurse: {type: String, default: 'Unassigned'},
   assignedNurseId: {type: String, default: 'Unassigned'},
   createdAt: {type: Date, default: Date.now}
