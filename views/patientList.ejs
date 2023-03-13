@@ -171,7 +171,7 @@
                                   </td>
                                   <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 
-                                    <% if (patients[i].intakeCompleted == "false"){ %> 
+                                    <% if (patients[i].intakeCompleted === false){ %> 
 
                                       <span
                                           class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
@@ -180,7 +180,7 @@
                                           <span class="relative">Intake Incomplete</span>
                                       </span>
 
-                                      <% } else if (patients[i].isolationStatus == "true") { %>
+                                      <% } else if (patients[i].isolationStatus == true) { %>
 
                                         <span
                                         class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
