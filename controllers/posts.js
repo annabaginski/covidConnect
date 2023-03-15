@@ -167,7 +167,9 @@ module.exports = {
       const isolationStatus = new Date() < end;
 
       await User.updateOne({email: req.user.email},
-        {$set: {intakeCompleted: true, isolationStatus: isolationStatus}}
+        {$set: {
+          intakeCompleted: true, isolationStatus: isolationStatus,
+          fullName: req.body.fullname}}
         );
 
       console.log("Initial Intake Completed", req.user.id, req.user);
