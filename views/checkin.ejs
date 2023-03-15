@@ -1,7 +1,7 @@
 <%- include('partials/header') -%>
 
-    <main class="container">
-        <div class="row justify-content-center">
+
+        <div class="h-screen row justify-content-center">
             <section class="col-6 mt-5">
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
@@ -16,8 +16,11 @@
 
                 <div class="max-w-lg mx-auto">
 
+                    <h2 class="text-center text-gray-800 text-xl font-bold tracking-normal leading-tight mb-4">Daily Check-In Assessment</h2>
+
                 <form action="/checkin" method="POST">
                     <div class="mb-6">
+                        
                     <label class="text-sm font-medium text-gray-900 block mb-2" for="name">Name:</label>
                     <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name="name" id="name" value="<%=user.userName%>"  required>
                     </div>
@@ -75,6 +78,6 @@
                 </div>
             </section>
         </div>
-    </main>
+ 
 
 <%- include('partials/footer') -%>
